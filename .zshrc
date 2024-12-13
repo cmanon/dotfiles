@@ -14,16 +14,16 @@ if [ ! -d "$ZINIT_HOME" ]; then
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-if [[ $(uname) == 'Darwin' ]]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-	zinit snippet OMZP::macos
-fi
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Source / Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
+
+if [[ $(uname) == 'Darwin' ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+	zinit snippet OMZP::macos
+fi
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
