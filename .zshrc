@@ -14,7 +14,10 @@ if [ ! -d "$ZINIT_HOME" ]; then
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $(uname) == 'Darwin' ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+	zinit snippet OMZP::macos
+fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -36,7 +39,6 @@ zinit snippet OMZP::git
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
 zinit snippet OMZP::azure
-zinit snippet OMZP::macos
 zinit snippet OMZP::aws
 
 # Load completions
@@ -68,6 +70,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias ll='ls -la'
+alias vi='vim'
 
 # Shell integrations
 eval "$(fzf --zsh)"

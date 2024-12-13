@@ -20,3 +20,6 @@ option_as_alt = "Both"
 normal.family = "JetBrainsMono Nerd Font"
 size = 14
 
+[cursor]
+style.shape = "Block"
+style.blinking = "On"
