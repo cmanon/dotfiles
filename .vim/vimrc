@@ -1,0 +1,45 @@
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'edkolev/tmuxline.vim'
+
+call vundle#end()
+
+filetype plugin indent on
+syntax on
+"
+"colorscheme wombat256
+"colorscheme Tomorrow-Night-Eighties
+"colorscheme solarized
+"colorscheme new-moon
+colorscheme nord
+"colorscheme catppuccin_mocha
+
+" Settings
+set encoding=utf-8
+set laststatus=2
+set ignorecase
+set softtabstop=4
+set number
+set nowrap
+set noerrorbells
+set nobackup
+set backupdir=/tmp/.1009/vim/backups,.
+set directory=/tmp/.1009/vim/swapfiles,.
+
+" [un-]Mappings
+map <Up> <NOP>
+map <Down> <NOP>
+map <Left> <NOP>
+map <Right> <NOP>
+map <End> <NOP>
+map <Home> <NOP>
+inoremap jk <ESC>
+
+let g:airline_powerline_fonts = 1
+"let g:airline_theme = 'catppuccin_mocha'
