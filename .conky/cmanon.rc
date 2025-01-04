@@ -1,0 +1,127 @@
+-- Conky, a system monitor https://github.com/brndnmtthws/conky
+--
+-- This configuration file is Lua code. You can write code in here, and it will
+-- execute when Conky loads. You can use it to generate your own advanced
+-- configurations.
+--
+-- Try this (remove the `--`):
+--
+--   print("Loading Conky config")
+--
+-- For more on Lua, see:
+-- https://www.lua.org/pil/contents.html
+
+conky.config = {
+    alignment = 'bottom_right',
+    background = true,
+    border_width = 0,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    -- font = 'JetBrains Mono:size=12',
+    -- font = 'scientifica:size=8',
+    font = 'Chakra Petch:size=9',
+    gap_x = 20,
+    gap_y = 10,
+    minimum_height = 800,
+    minimum_width = 400,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'conky',
+    own_window_type = 'desktop',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = true,
+    use_spacer = 'none',
+    use_xft = true,
+
+    -- Green
+    color0 = '4dffff',
+    color1 = '2d6862',
+    color2 = '0d2a32',
+    color3 = '49b045',
+    color4 = 'ffffff',
+    color5 = '000000',
+    color6 = 'ff5140',
+
+    -- Red
+    --color0 = 'ff4e24',
+    --color1 = '2d6862',
+    --color2 = '320200',
+    --color3 = 'ffa73e',
+    --color4 = '888888',
+    --color5 = '080401',
+    --color6 = 'ff5140',
+
+    lua_load = '/home/cmanon/.conky/conky_draw.lua',
+    lua_draw_hook_pre = 'main',
+};
+
+conky.text = [[
+    ${color3}${voffset 8}${goto 30}${font Chakra Petch:bold:size=7}${kernel}
+    ${color4}${voffset -4}${goto 30}${font Chakra Petch:bold:size=13}Processing Unit ${color3}${alignr 35}${cpu cpu0} %
+    ${color3}${voffset 0}${goto 30}${font Chakra Petch:bold:size=7}Load ${color4}General (${processes})${goto 210}${color3}Load ${color4}Detailed (${running_threads})
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU0
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU1
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU2
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU3
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU4
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU5
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU5
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU6
+    ${color3}${voffset -1}${alignr 35}${font scientifica:bold:size=6}CPU7
+
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${freq cpu0} Mhz ${alignr 95}${color3}${font Chakra Petch:bold:size=7}Frequency ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${hwmon 0 temp 1}°C ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Temperature
+    ${color4}${voffset 13}${goto 30}${font Chakra Petch:bold:size=10}${top name 1} ${alignr 90}${color3}${font Chakra Petch:bold:size=7}CPU ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${top_mem name 1} ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Memory
+
+    ${color3}${voffset -2}${goto 30}${font Chakra Petch:bold:size=7}${memmax}
+    ${color4}${voffset -4}${goto 30}${font Chakra Petch:bold:size=13}Memory Statistics ${color3}${alignr 35}${mem}
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${memperc} % ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Utilization
+    
+    ${color3}${voffset 12}${goto 30}${font Chakra Petch:bold:size=7}0% ${goto 190}50% ${alignr 35}100%
+
+    ${color3}${voffset 1}${goto 30}${font Chakra Petch:bold:size=7}${fs_type} - ${fs_size}
+    ${color4}${voffset -4}${goto 30}${font Chakra Petch:bold:size=13}File System ${color3}${alignr 35}${fs_used}
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${fs_used_perc} % ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Utilization
+
+    ${color3}${voffset 12}${goto 30}${font Chakra Petch:bold:size=7}0% ${goto 190}50% ${alignr 35}100%
+
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${swap} ${alignr 98}${color3}${font Chakra Petch:bold:size=7}Swap ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${hwmon 2 temp 1}°C ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Temperature
+    ${color4}${voffset 13}${goto 30}${font Chakra Petch:bold:size=10}${fs_free /} ${goto 138}${color3}${font Chakra Petch:bold:size=7}Available ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${diskio} ${alignr 35}${color3}${font Chakra Petch:bold:size=7}DiskIO
+
+    ${color3}${voffset -3}${goto 30}${font Chakra Petch:bold:size=7}${wireless_essid wlan0}
+    ${color4}${voffset -4}${goto 30}${font Chakra Petch:bold:size=13}Network State ${color3}${alignr 35}${wireless_link_qual_perc wlan0} %
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${wireless_link_qual wlan0} dBm ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Quality
+
+    ${color3}${voffset 12}${goto 30}${font Chakra Petch:bold:size=7}0% ${goto 190}50% ${alignr 35}100%
+
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${wireless_ap wlan0} ${alignr 95}${color3}${font Chakra Petch:bold:size=7}AP ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${addr wlan0} ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Address
+    ${color4}${voffset 13}${goto 30}${font Chakra Petch:bold:size=10}${wireless_mode wlan0} ${goto 163}${color3}${font Chakra Petch:bold:size=7}Mode ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${wireless_bitrate wlan0} ${alignr 35}${color3}${font Chakra Petch:bold:size=7}BitRate
+
+    ${color3}${voffset -3}${goto 30}${font Chakra Petch:bold:size=7}Image Quality (${nvidia imagequality})
+    ${color4}${voffset -4}${goto 30}${font Chakra Petch:bold:size=13}Nvidia ${color3}${alignr 35}${nvidia temp}°C
+    ${color4}${voffset 4}${goto 30}${font Chakra Petch:bold:size=10}${nvidia gpufreq} ${alignr 60}${color3}${font Chakra Petch:bold:size=7}GPU Frequency ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${nvidia memfreq} ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Memory Frequency
+    ${color4}${voffset 13}${goto 30}${font Chakra Petch:bold:size=10}${nvidia temp}°C ${goto 148}${color3}${font Chakra Petch:bold:size=7}Ambient ${voffset -4}${goto 210}${color4}${font Chakra Petch:bold:size=10}${nvidia threshold}°C ${alignr 35}${color3}${font Chakra Petch:bold:size=7}Threshold
+    
+    ${color3}${voffset -1}${goto 30}${font Chakra Petch:bold:size=7}Sytem (${sysname})
+    ${color4}${voffset -4}${goto 30}${font Chakra Petch:bold:size=13}Uptime ${color3}${alignr 35}${uptime_short}
+    
+]];
